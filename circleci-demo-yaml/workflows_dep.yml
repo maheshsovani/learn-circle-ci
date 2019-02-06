@@ -1,0 +1,52 @@
+version: 2
+jobs:
+  unit:
+    docker:
+    - image: circleci/node:8.13.0
+    steps:
+    - checkout
+    - restore_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+    - run:
+        name: install-npm-packages
+        command: npm install
+    - save_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+        paths:
+        - ./node_modules
+    - run:
+        name: run-tests
+        command: npm run unit
+    - store_artifacts:
+        path: coverage
+        prefix: coverage
+  integration:
+    docker:
+    - image: circleci/node:8.13.0
+    steps:
+    - checkout
+    - restore_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+    - run:
+        name: install-npm-packages
+        command: npm install
+    - save_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+        paths:
+        - ./node_modules
+    - run:
+        name: run-tests
+        command: npm run integration
+    - store_artifacts:
+        path: coverage
+        prefix: coverage
+
+workflows:
+  version: 2
+  unit_and_integration:
+    jobs:
+    - unit
+    - integration:
+        requires:
+        - unit
+

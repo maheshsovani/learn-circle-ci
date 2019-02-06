@@ -1,0 +1,26 @@
+{
+  "name": "circleci-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc --reporter=lcov mocha",
+    "unit": "nyc --reporter=lcov mocha test/unit_test.js",
+    "integration": "nyc --reporter=lcov mocha test/integration_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaneshSPatil/circleci-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GaneshSPatil/circleci-demo/issues"
+  },
+  "homepage": "https://github.com/GaneshSPatil/circleci-demo#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nyc": "^13.2.0"
+  }
+}
