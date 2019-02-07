@@ -58,7 +58,7 @@ workflows:
     jobs:
     - build_unit
     - build_unit_on_latest
-    - integration
+    - integration:
         requires:
         - build_unit
         - build_unit_on_latest
