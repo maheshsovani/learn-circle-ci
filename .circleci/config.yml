@@ -35,3 +35,9 @@ jobs:
         name: run-tests
         command: npm test
 
+workflows:
+  version: 2
+  build_parallely:
+    jobs:
+    - build
+    - build_on_latest
