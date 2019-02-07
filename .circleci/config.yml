@@ -17,4 +17,7 @@ jobs:
     - run:
         name: run-tests
         command: npm test
+    - store_artifacts:
+        path: coverage
+        prefix: coverage
 
