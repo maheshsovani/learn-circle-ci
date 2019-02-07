@@ -4,7 +4,7 @@ const sub = require('../util').subtract;
 
 describe('Unit', function () {
   it('should check if 1 is equal is true', function () {
-    assert.equal(add(2, 3), 5);
+    assert.equal(add(2, 3), 1);
   });
 
   it('should check if 1 is equal is true', function () {
